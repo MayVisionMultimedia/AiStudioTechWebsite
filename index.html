@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Studio Tech — Malaysia's Premier AI Solutions Partner</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f7f4;
+  --bg2: #ffffff;
+  --bg3: #efefec;
+  --text: #0a0a0a;
+  --text2: #444;
+  --text3: #777;
+  --border: rgba(0,0,0,0.1);
+  --border2: rgba(0,0,0,0.2);
+  --accent: #0066ff;
+  --accent2: #003db5;
+  --accent-bg: rgba(0,102,255,0.08);
+  --card: #ffffff;
+  --nav-bg: rgba(248,247,244,0.92);
+  --tag-bg: #eeeef8;
+  --tag-text: #3333aa;
+  --green: #00a86b;
+  --amber: #e08000;
+  --red: #d93025;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07);
+  --shadow2: 0 8px 40px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius2: 20px;
+}
+[data-theme="dark"] {
+  --bg: #0c0c10;
+  --bg2: #13131a;
+  --bg3: #1a1a24;
+  --text: #f0f0f0;
+  --text2: #aaa;
+  --text3: #666;
+  --border: rgba(255,255,255,0.1);
+  --border2: rgba(255,255,255,0.2);
+  --accent: #4d9dff;
+  --accent2: #7ab8ff;
+  --accent-bg: rgba(77,157,255,0.12);
+  --card: #16161f;
+  --nav-bg: rgba(12,12,16,0.92);
+  --tag-bg: rgba(77,157,255,0.15);
+  --tag-text: #7ab8ff;
+  --shadow: 0 2px 16px rgba(0,0,0,0.4);
+  --shadow2: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.65;
+  transition: background 0.3s, color 0.3s;
+}
+h1,h2,h3,h4,h5 { font-family: 'Outfit', sans-serif; line-height: 1.2; font-weight: 700; }
+a { color: var(--accent); text-decoration: none; }
+img { max-width: 100%; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 0.2rem; }
+.nav-links a {
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--text2);
+  padding: 6px 12px; border-radius: 8px;
+  transition: all 0.2s;
+}
+.nav-links a:hover { background: var(--accent-bg); color: var(--accent); }
+.nav-controls { display: flex; align-items: center; gap: 8px; }
+.btn-sm {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem; font-weight: 500;
+  padding: 7px 16px; border-radius: 8px;
+  cursor: pointer; transition: all 0.2s;
+  border: 1px solid var(--border2);
+  background: transparent; color: var(--text);
+}
+.btn-sm:hover { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+.btn-primary {
+  background: var(--accent); color: #fff;
+  border: 1px solid var(--accent);
+}
+.btn-primary:hover { background: var(--accent2); border-color: var(--accent2); color: #fff; }
+.toggle-icon { font-size: 1rem; }
+
+/* SECTIONS */
+.section { padding: 7rem 2rem; max-width: 1180px; margin: 0 auto; }
+.section-full { padding: 7rem 2rem; }
+.section-sm { padding: 4rem 2rem; max-width: 1180px; margin: 0 auto; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.5;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--accent-bg); color: var(--accent);
+  border: 1px solid rgba(0,102,255,0.2);
+  padding: 5px 14px; border-radius: 100px;
+  font-size: 0.8rem; font-weight: 500;
+  margin-bottom: 1.5rem; position: relative;
+}
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.hero h1 .highlight {
+  color: var(--accent);
+  position: relative;
+}
+.hero p {
+  font-size: 1.15rem; color: var(--text2);
+  max-width: 600px; margin: 0 auto 2.5rem;
+  position: relative;
+}
+.hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+.btn-lg {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem; font-weight: 500;
+  padding: 13px 28px; border-radius: 10px;
+  cursor: pointer; transition: all 0.2s;
+  border: 1px solid var(--border2);
+  background: transparent; color: var(--text);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-lg.primary {
+  background: var(--accent); color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px rgba(0,102,255,0.3);
+}
+.btn-lg.primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 6px 32px rgba(0,102,255,0.4); }
+.btn-lg:hover { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+.hero-stats {
+  display: flex; gap: 3rem; justify-content: center;
+  margin-top: 4rem; position: relative;
+}
+.stat { text-align: center; }
+.stat-num { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text); }
+.stat-label { font-size: 0.82rem; color: var(--text3); margin-top: 2px; }
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: 2rem;
+  transition: all 0.3s;
+}
+.card:hover { border-color: var(--accent); box-shadow: var(--shadow2); transform: translateY(-4px); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+
+.tag {
+  display: inline-block;
+  background: var(--tag-bg); color: var(--tag-text);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px;
+  margin-bottom: 1rem;
+}
+.section-label {
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+.section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; }
+.section-sub { font-size: 1.05rem; color: var(--text2); max-width: 600px; }
+
+/* SERVICE CARDS */
+.service-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius2); padding: 2rem;
+  transition: all 0.3s; cursor: pointer;
+  position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--accent); transform: scaleX(0); transition: transform 0.3s;
+  transform-origin: left;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover { border-color: var(--accent); box-shadow: var(--shadow2); transform: translateY(-4px); }
+.service-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--accent-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+}
+.service-title { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+.service-desc { font-size: 0.9rem; color: var(--text2); line-height: 1.65; }
+.service-price { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--accent); margin-top: 1rem; }
+.service-price span { font-size: 0.8rem; font-weight: 400; color: var(--text3); }
+
+/* PRICING */
+.pricing-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius2); padding: 2rem;
+  transition: all 0.3s; position: relative;
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), var(--shadow2);
+}
+.popular-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 100px;
+}
+.price-amount { font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--text); }
+.price-amount small { font-size: 1rem; font-weight: 400; color: var(--text3); }
+.price-period { font-size: 0.85rem; color: var(--text3); margin-bottom: 1.5rem; }
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+.feature-list li { font-size: 0.9rem; color: var(--text2); display: flex; align-items: flex-start; gap: 8px; }
+.feature-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+/* PAGES / TABS */
+.page { display: none; }
+.page.active { display: block; }
+
+/* MODAL */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--card); border-radius: var(--radius2);
+  border: 1px solid var(--border);
+  padding: 2.5rem; max-width: 560px; width: 90%;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: none; font-size: 1.4rem; cursor: pointer;
+  color: var(--text3); padding: 4px;
+}
+.modal-close:hover { color: var(--text); }
+
+/* FORMS */
+.form-group { margin-bottom: 1.2rem; }
+.form-label { font-size: 0.85rem; font-weight: 500; color: var(--text2); margin-bottom: 6px; display: block; }
+.form-input {
+  width: 100%; padding: 10px 14px;
+  border: 1px solid var(--border2); border-radius: 10px;
+  background: var(--bg3); color: var(--text);
+  font-family: 'Outfit', sans-serif; font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+.form-input:focus { outline: none; border-color: var(--accent); }
+.form-select { appearance: none; cursor: pointer; }
+textarea.form-input { resize: vertical; min-height: 100px; }
+
+/* PAYMENT */
+.payment-method {
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 1rem 1.2rem; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 10px;
+}
+.payment-method:hover, .payment-method.selected {
+  border-color: var(--accent); background: var(--accent-bg);
+}
+.bank-logo {
+  width: 42px; height: 28px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 700;
+  color: #fff;
+}
+
+/* RESOURCES */
+.resource-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.5rem;
+  transition: all 0.2s;
+}
+.resource-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+.resource-type {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+/* MEMBER */
+.member-dashboard {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius2); padding: 2.5rem;
+  max-width: 700px; margin: 0 auto;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 4rem 2rem 2rem;
+}
+.footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+.footer-brand { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
+.footer-desc { font-size: 0.88rem; color: var(--text3); line-height: 1.7; }
+.footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); margin-bottom: 1rem; }
+.footer-col a { display: block; font-size: 0.88rem; color: var(--text2); padding: 3px 0; transition: color 0.2s; }
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1180px; margin: 3rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text3); }
+
+/* LANGUAGE TOGGLE */
+.lang-toggle {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 3px;
+}
+.lang-btn {
+  font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
+  border: none; cursor: pointer; background: none; color: var(--text2); transition: all 0.2s;
+}
+.lang-btn.active { background: var(--accent); color: #fff; }
+
+/* TABS */
+.tabs { display: flex; gap: 4px; background: var(--bg3); padding: 4px; border-radius: 12px; width: fit-content; margin-bottom: 2.5rem; }
+.tab-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 500;
+  padding: 8px 20px; border-radius: 9px; cursor: pointer;
+  border: none; background: none; color: var(--text2); transition: all 0.2s;
+}
+.tab-btn.active { background: var(--card); color: var(--text); box-shadow: var(--shadow); }
+
+/* CONTACT FORM SUCCESS */
+.success-msg {
+  background: rgba(0,168,107,0.1); border: 1px solid rgba(0,168,107,0.3);
+  color: var(--green); border-radius: 10px; padding: 1rem 1.2rem;
+  font-size: 0.9rem; margin-top: 1rem; display: none;
+}
+
+/* CART */
+.cart-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.cart-total {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; font-weight: 700;
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem;
+}
+
+/* MEMBER AVATAR */
+.avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* SCROLL ANIMATIONS */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.fade-in.visible { opacity: 1; transform: none; }
+
+/* HERO DECO */
+.hero-orb {
+  position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none;
+}
+.orb1 { width: 400px; height: 400px; background: rgba(0,102,255,0.12); top: 10%; left: -10%; }
+.orb2 { width: 300px; height: 300px; background: rgba(77,157,255,0.1); bottom: 10%; right: -5%; }
+
+/* MOBILE NAV */
+.hamburger { display: none; }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; cursor: pointer; color: var(--text); font-size: 1.1rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* STEP INDICATOR */
+.steps { display: flex; align-items: center; gap: 0; margin-bottom: 2rem; }
+.step-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--bg3); border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700; color: var(--text3);
+  transition: all 0.3s; flex-shrink: 0;
+}
+.step-dot.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.step-dot.done { background: var(--green); border-color: var(--green); color: #fff; }
+.step-line { flex: 1; height: 2px; background: var(--border); margin: 0 4px; }
+.step-line.done { background: var(--green); }
+
+/* B2B/B2C CLIENT TOGGLE */
+.client-toggle {
+  display: inline-flex; background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 12px; padding: 4px; gap: 4px; margin-bottom: 3rem;
+}
+.client-btn {
+  font-family: 'Outfit', sans-serif; font-size: 0.9rem; font-weight: 500;
+  padding: 10px 24px; border-radius: 9px;
+  border: none; cursor: pointer; background: none; color: var(--text2); transition: all 0.2s;
+}
+.client-btn.active { background: var(--card); color: var(--text); box-shadow: var(--shadow); }
+
+/* MISC */
+.mono { font-family: 'JetBrains Mono', monospace; }
+.text-accent { color: var(--accent); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media(max-width:700px){.grid-2{grid-template-columns:1fr;}}
+.divider { height: 1px; background: var(--border); margin: 3rem 0; }
+
+/* NOTIFICATION */
+.notif {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 3000;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.5rem;
+  box-shadow: var(--shadow2); max-width: 320px;
+  transform: translateY(100px); opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.notif.show { transform: none; opacity: 1; }
+.notif-icon { font-size: 1.2rem; flex-shrink: 0; }
+.notif-title { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.notif-msg { font-size: 0.82rem; color: var(--text2); }
+</style>
+</head>
+<body>
+
+<!-- NOTIFICATION -->
+<div class="notif" id="notif">
+  <div class="notif-icon" id="notif-icon">✅</div>
+  <div>
+    <div class="notif-title" id="notif-title">Success</div>
+    <div class="notif-msg" id="notif-msg">Your message has been sent.</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="9" fill="#0066ff"/>
+      <circle cx="16" cy="16" r="5" fill="none" stroke="white" stroke-width="1.8"/>
+      <line x1="16" y1="5" x2="16" y2="9.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="16" y1="22.5" x2="16" y2="27" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5" y1="16" x2="9.5" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="22.5" y1="16" x2="27" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="16" cy="16" r="2" fill="white"/>
+      <circle cx="16" cy="6.5" r="1.3" fill="#7ab8ff"/>
+      <circle cx="16" cy="25.5" r="1.3" fill="#7ab8ff"/>
+      <circle cx="6.5" cy="16" r="1.3" fill="#7ab8ff"/>
+      <circle cx="25.5" cy="16" r="1.3" fill="#7ab8ff"/>
+    </svg>
+    <span style="font-family:'Outfit',sans-serif; font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; color:var(--text);">AI Studio <span style="color:var(--accent);">Tech</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('services')">Services</a>
+    <a href="#" onclick="showPage('b2b')">B2B</a>
+    <a href="#" onclick="showPage('b2c')">B2C</a>
+    <a href="#" onclick="showPage('resources')">Resources</a>
+    <a href="#" onclick="showPage('member')">Member</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langEn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="langZh" onclick="setLang('zh')">中文</button>
+    </div>
+    <button class="btn-sm" onclick="toggleTheme()" id="themeBtn">🌙 Dark</button>
+    <button class="btn-sm btn-primary" onclick="openModal('registerModal')">Join Free</button>
+  </div>
+</nav>
+
+<!-- PAGES WRAPPER -->
+<div style="padding-top:64px;">
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-badge"><span class="pulse"></span> <span data-en="Malaysia's #1 AI Solutions Partner" data-zh="马来西亚首选AI解决方案伙伴">Malaysia's #1 AI Solutions Partner</span></div>
+    <h1>
+      <span data-en="Build Smarter with" data-zh="以">Build Smarter with</span>
+      <span class="highlight" data-en=" AI" data-zh=" AI"> AI</span>
+      <br><span data-en="Transform Your Business Today" data-zh="今天就转型您的业务">Transform Your Business Today</span>
+    </h1>
+    <p data-en="AI Studio Tech delivers cutting-edge artificial intelligence solutions for businesses and individuals across Malaysia — from automation to consultancy, training to custom AI development." data-zh="AI Studio Tech 为马来西亚的企业和个人提供尖端人工智能解决方案——从自动化到咨询，培训到定制AI开发。">
+      AI Studio Tech delivers cutting-edge artificial intelligence solutions for businesses and individuals across Malaysia — from automation to consultancy, training to custom AI development.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn-lg primary" onclick="showPage('services')" data-en="Explore Services →" data-zh="探索服务 →">Explore Services →</button>
+      <button class="btn-lg" onclick="showPage('contact')" data-en="Book Consultation" data-zh="预约咨询">Book Consultation</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-label" data-en="Projects Delivered" data-zh="已交付项目">Projects Delivered</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label" data-en="Client Satisfaction" data-zh="客户满意度">Client Satisfaction</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-en="Enterprise Clients" data-zh="企业客户">Enterprise Clients</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label" data-en="Core Services" data-zh="核心服务">Core Services</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <div class="section fade-in">
+    <div class="section-label" data-en="Our Expertise" data-zh="我们的专业">Our Expertise</div>
+    <h2 class="section-title" data-en="Five Pillars of AI Excellence" data-zh="AI卓越五大支柱">Five Pillars of AI Excellence</h2>
+    <p class="section-sub" data-en="Comprehensive AI services tailored for every stage of your digital transformation journey." data-zh="为您数字化转型旅程的每个阶段量身定制的全面AI服务。">Comprehensive AI services tailored for every stage of your digital transformation journey.</p>
+    <br><br>
+    <div class="card-grid">
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🔧</div>
+        <div class="service-title" data-en="AI Project Development" data-zh="AI项目开发">AI Project Development</div>
+        <div class="service-desc" data-en="Custom AI applications, chatbots, recommendation systems and intelligent software built from scratch for your business needs." data-zh="为您的业务需求从头构建的定制AI应用、聊天机器人、推荐系统和智能软件。">Custom AI applications, chatbots, recommendation systems and intelligent software built from scratch.</div>
+        <div class="service-price">from RM 5,000 <span>/ project</span></div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">⚡</div>
+        <div class="service-title" data-en="AI Automation" data-zh="AI自动化">AI Automation</div>
+        <div class="service-desc" data-en="Streamline operations with intelligent automation — from document processing to customer service workflows." data-zh="通过智能自动化简化运营——从文档处理到客户服务工作流程。">Streamline operations with intelligent automation — from document processing to customer service workflows.</div>
+        <div class="service-price">from RM 2,000 <span>/ month</span></div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🧠</div>
+        <div class="service-title" data-en="AI Consultancy" data-zh="AI咨询">AI Consultancy</div>
+        <div class="service-desc" data-en="Strategic AI roadmapping, feasibility assessments and technology audits to align AI with your business goals." data-zh="战略AI路线图、可行性评估和技术审计，将AI与您的业务目标对齐。">Strategic AI roadmapping, feasibility assessments and technology audits to align AI with your goals.</div>
+        <div class="service-price">from RM 1,500 <span>/ session</span></div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🎓</div>
+        <div class="service-title" data-en="AI Workshop & Training" data-zh="AI研讨会与培训">AI Workshop & Training</div>
+        <div class="service-desc" data-en="Hands-on workshops and structured training programs for teams and individuals — beginner to advanced." data-zh="为团队和个人提供实践研讨会和结构化培训项目——从初学者到高级。">Hands-on workshops and structured training programs for teams and individuals.</div>
+        <div class="service-price">from RM 500 <span>/ person</span></div>
+      </div>
+      <div class="service-card" onclick="showPage('services')">
+        <div class="service-icon">🛠️</div>
+        <div class="service-title" data-en="AI Tools Installation & Setup" data-zh="AI工具安装与设置">AI Tools Installation & Setup</div>
+        <div class="service-desc" data-en="End-to-end setup of AI tools — ChatGPT, Copilot, Midjourney, Make.com, n8n and more — fully configured for you." data-zh="AI工具的端到端设置——ChatGPT、Copilot、Midjourney、Make.com、n8n等——为您完全配置。">End-to-end setup of AI tools — ChatGPT, Copilot, Make.com, n8n and more — fully configured.</div>
+        <div class="service-price">from RM 800 <span>/ setup</span></div>
+      </div>
+      <div class="service-card" style="background:var(--accent-bg);border-color:var(--accent);cursor:pointer;" onclick="openModal('cartModal')">
+        <div class="service-icon" style="background:var(--accent);">🛒</div>
+        <div class="service-title text-accent" data-en="Build Your Package" data-zh="创建您的套餐">Build Your Package</div>
+        <div class="service-desc" data-en="Select and combine any services, choose a plan, and pay securely via Malaysian banking." data-zh="选择和组合任何服务，选择计划，并通过马来西亚银行安全付款。">Select and combine any services, choose a plan, and pay securely via Malaysian banking.</div>
+        <div class="service-price text-accent" data-en="Custom Bundle →" data-zh="定制套餐 →">Custom Bundle →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY AI STUDIO TECH -->
+  <div class="section-full fade-in" style="background:var(--bg2);">
+    <div style="max-width:1180px;margin:0 auto;padding:0 2rem;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+        <div>
+          <div class="section-label" data-en="Why Us" data-zh="为什么选择我们">Why Us</div>
+          <h2 class="section-title" data-en="What's Missing in Malaysia's AI Market" data-zh="马来西亚AI市场缺少什么">What's Missing in Malaysia's AI Market</h2>
+          <p style="color:var(--text2);margin-bottom:2rem;" data-en="Most AI vendors offer either theory or tech — but not both, not affordably, and not in Bahasa Malaysia or Mandarin. We bridge that gap." data-zh="大多数AI供应商提供理论或技术——但不能两者兼顾，负担不起，也不用马来语或普通话。我们弥补这一差距。">Most AI vendors offer either theory or tech — but not both, not affordably, and not in Bahasa Malaysia or Mandarin. We bridge that gap.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(0,168,107,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✅</div>
+              <div>
+                <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;" data-en="Local Language Support (BM, Mandarin, English)" data-zh="本地语言支持（马来语、普通话、英语）">Local Language Support (BM, Mandarin, English)</div>
+                <div style="font-size:0.85rem;color:var(--text2);" data-en="We deliver in all three — rare in Malaysian AI market." data-zh="我们用三种语言提供服务——在马来西亚AI市场中很罕见。">We deliver in all three — rare in Malaysian AI market.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(0,102,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🎯</div>
+              <div>
+                <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;" data-en="SME-Focused Pricing" data-zh="中小企业定价">SME-Focused Pricing</div>
+                <div style="font-size:0.85rem;color:var(--text2);" data-en="Affordable packages designed for Malaysian SMEs, not MNCs." data-zh="为马来西亚中小企业设计的实惠套餐，而非跨国公司。">Affordable packages designed for Malaysian SMEs, not MNCs.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(224,128,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">⚡</div>
+              <div>
+                <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;" data-en="End-to-End Execution" data-zh="端到端执行">End-to-End Execution</div>
+                <div style="font-size:0.85rem;color:var(--text2);" data-en="We don't just advise — we build, deploy, train and support." data-zh="我们不只是提建议——我们构建、部署、培训和支持。">We don't just advise — we build, deploy, train and support.</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(217,48,37,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🔒</div>
+              <div>
+                <div style="font-weight:600;font-size:0.95rem;margin-bottom:2px;" data-en="Data Privacy Compliance" data-zh="数据隐私合规">Data Privacy Compliance</div>
+                <div style="font-size:0.85rem;color:var(--text2);" data-en="All solutions comply with PDPA Malaysia standards." data-zh="所有解决方案符合马来西亚PDPA标准。">All solutions comply with PDPA Malaysia standards.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="background:var(--bg3);border-radius:var(--radius2);padding:2rem;border:1px solid var(--border);">
+            <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:1.5rem;font-size:1rem;" data-en="Malaysian AI Market Gaps We Fill" data-zh="我们填补的马来西亚AI市场缺口">Malaysian AI Market Gaps We Fill</div>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.88rem;" data-en="Local Bilingual AI Training" data-zh="本地双语AI培训">Local Bilingual AI Training</span>
+                <span class="tag">Gap ✓</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.88rem;" data-en="Affordable SME AI Packages" data-zh="实惠中小企业AI套餐">Affordable SME AI Packages</span>
+                <span class="tag">Gap ✓</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.88rem;" data-en="AI Tools Setup & Support" data-zh="AI工具设置与支持">AI Tools Setup & Support</span>
+                <span class="tag">Gap ✓</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.88rem;" data-en="Retail/Consumer AI Literacy" data-zh="零售/消费者AI素养">Retail/Consumer AI Literacy</span>
+                <span class="tag">Gap ✓</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:0.88rem;" data-en="AI Automation for F&B/Retail" data-zh="餐饮/零售AI自动化">AI Automation for F&B/Retail</span>
+                <span class="tag">Gap ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="page-services" class="page">
+  <div class="section">
+    <div class="section-label" data-en="Services & Pricing" data-zh="服务与价格">Services & Pricing</div>
+    <h2 class="section-title" data-en="All Service Packages" data-zh="所有服务套餐">All Service Packages</h2>
+    <p class="section-sub" data-en="Transparent pricing for every need. Mix and match services or choose a bundle." data-zh="每种需求的透明定价。混合搭配服务或选择套餐。">Transparent pricing for every need. Mix and match services or choose a bundle.</p>
+    <br>
+    <button class="btn-lg primary" style="margin-bottom:2rem;" onclick="openModal('cartModal')" data-en="🛒 Build My Package" data-zh="🛒 创建我的套餐">🛒 Build My Package</button>
+
+    <!-- SERVICE 1 -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="tag" data-en="Service 01" data-zh="服务 01">Service 01</div>
+        <h3 style="font-size:1.6rem;font-weight:700;margin-bottom:1rem;" data-en="AI Project Development" data-zh="AI项目开发">AI Project Development</h3>
+        <p style="color:var(--text2);margin-bottom:1.5rem;" data-en="We build custom AI-powered software, chatbots, dashboards, and intelligent systems tailored to your business. From discovery to deployment, our team handles everything." data-zh="我们构建定制的AI驱动软件、聊天机器人、仪表板和智能系统，为您的业务量身定制。从发现到部署，我们的团队处理一切。">We build custom AI-powered software, chatbots, dashboards, and intelligent systems tailored to your business. From discovery to deployment, our team handles everything.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI Chatbot & Virtual Assistant" data-zh="AI聊天机器人和虚拟助手">AI Chatbot & Virtual Assistant</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Custom AI Model Training (with your data)" data-zh="自定义AI模型训练（使用您的数据）">Custom AI Model Training (with your data)</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI Dashboard & Analytics Platform" data-zh="AI仪表板和分析平台">AI Dashboard & Analytics Platform</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Recommendation & Personalisation Engine" data-zh="推荐和个性化引擎">Recommendation & Personalisation Engine</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Computer Vision & Image Recognition" data-zh="计算机视觉和图像识别">Computer Vision & Image Recognition</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Voice AI & NLP Applications" data-zh="语音AI和NLP应用">Voice AI & NLP Applications</span></div>
+        </div>
+        <div style="background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:10px;padding:1rem;font-size:0.85rem;color:var(--green);" data-en="💡 Malaysia Gap: Most local developers lack AI expertise. We combine software engineering with AI/ML — a rare combo locally." data-zh="💡 马来西亚缺口：大多数本地开发人员缺乏AI专业知识。我们将软件工程与AI/ML相结合——在本地是罕见的组合。">💡 Malaysia Gap: Most local developers lack AI expertise. We combine software engineering with AI/ML — a rare combo locally.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Starter AI App" data-zh="入门AI应用">Starter AI App</div>
+          <div class="price-amount">RM 5,000</div>
+          <div class="price-period" data-en="One-time | 4–6 week delivery" data-zh="一次性 | 4–6周交付">One-time | 4–6 week delivery</div>
+          <ul class="feature-list">
+            <li data-en="1 AI Feature (chatbot or classifier)" data-zh="1个AI功能（聊天机器人或分类器）">1 AI Feature (chatbot or classifier)</li>
+            <li data-en="Web or mobile integration" data-zh="网页或移动集成">Web or mobile integration</li>
+            <li data-en="30-day post-launch support" data-zh="30天上线后支持">30-day post-launch support</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="addToCart('AI Starter App','RM 5,000')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Most Popular" data-zh="最受欢迎">Most Popular</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Business AI Suite" data-zh="商业AI套件">Business AI Suite</div>
+          <div class="price-amount">RM 15,000</div>
+          <div class="price-period" data-en="One-time | 8–12 week delivery" data-zh="一次性 | 8–12周交付">One-time | 8–12 week delivery</div>
+          <ul class="feature-list">
+            <li data-en="3 AI Features bundled" data-zh="3个AI功能捆绑">3 AI Features bundled</li>
+            <li data-en="Custom data training" data-zh="自定义数据训练">Custom data training</li>
+            <li data-en="API integration with existing systems" data-zh="与现有系统的API集成">API integration with existing systems</li>
+            <li data-en="90-day support & maintenance" data-zh="90天支持与维护">90-day support & maintenance</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;" onclick="addToCart('Business AI Suite','RM 15,000')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Enterprise AI Platform" data-zh="企业AI平台">Enterprise AI Platform</div>
+          <div class="price-amount">RM 50,000+</div>
+          <div class="price-period" data-en="Custom | 3–6 month delivery" data-zh="定制 | 3–6个月交付">Custom | 3–6 month delivery</div>
+          <ul class="feature-list">
+            <li data-en="Full custom AI ecosystem" data-zh="完整定制AI生态系统">Full custom AI ecosystem</li>
+            <li data-en="Dedicated AI engineer" data-zh="专属AI工程师">Dedicated AI engineer</li>
+            <li data-en="12-month SLA support" data-zh="12个月SLA支持">12-month SLA support</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="showPage('contact')" data-en="Contact for Quote" data-zh="联系获取报价">Contact for Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 2 -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="tag" data-en="Service 02" data-zh="服务 02">Service 02</div>
+        <h3 style="font-size:1.6rem;font-weight:700;margin-bottom:1rem;" data-en="AI Automation" data-zh="AI自动化">AI Automation</h3>
+        <p style="color:var(--text2);margin-bottom:1.5rem;" data-en="Replace repetitive tasks with intelligent automation. We design, build and deploy workflows using Make.com, n8n, Zapier and custom pipelines — saving you hours every day." data-zh="用智能自动化替代重复性任务。我们使用Make.com、n8n、Zapier和自定义管道设计、构建和部署工作流——每天为您节省数小时。">Replace repetitive tasks with intelligent automation. We design, build and deploy workflows using Make.com, n8n, Zapier and custom pipelines.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="WhatsApp & Email Auto-Response" data-zh="WhatsApp和电子邮件自动回复">WhatsApp & Email Auto-Response</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI-Powered Lead Qualification" data-zh="AI驱动的潜在客户资质">AI-Powered Lead Qualification</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Invoice & Document Automation" data-zh="发票和文档自动化">Invoice & Document Automation</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Inventory & Order Management AI" data-zh="库存和订单管理AI">Inventory & Order Management AI</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Social Media AI Content Scheduler" data-zh="社交媒体AI内容调度器">Social Media AI Content Scheduler</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="HR Onboarding & Payroll Automation" data-zh="人力资源入职和薪资自动化">HR Onboarding & Payroll Automation</span></div>
+        </div>
+        <div style="background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:10px;padding:1rem;font-size:0.85rem;color:var(--green);" data-en="💡 Malaysia Gap: Most SMEs still use manual processes. AI automation can save 20–30 hours/week — but adoption is extremely low in Malaysia." data-zh="💡 马来西亚缺口：大多数中小企业仍使用手动流程。AI自动化每周可节省20-30小时——但在马来西亚的采用率极低。">💡 Malaysia Gap: Most SMEs still use manual processes. AI automation can save 20–30 hours/week — but adoption is extremely low in Malaysia.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Automation Starter" data-zh="自动化入门">Automation Starter</div>
+          <div class="price-amount">RM 2,000 <small>/mo</small></div>
+          <div class="price-period" data-en="Monthly retainer | 3 automation flows" data-zh="月度保留 | 3个自动化流程">Monthly retainer | 3 automation flows</div>
+          <ul class="feature-list">
+            <li data-en="3 workflow automations" data-zh="3个工作流自动化">3 workflow automations</li>
+            <li data-en="Email & WhatsApp integration" data-zh="电子邮件和WhatsApp集成">Email & WhatsApp integration</li>
+            <li data-en="Monthly performance report" data-zh="月度性能报告">Monthly performance report</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="addToCart('Automation Starter','RM 2,000/mo')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Best Value" data-zh="最佳性价比">Best Value</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Business Automation Pro" data-zh="商业自动化专业版">Business Automation Pro</div>
+          <div class="price-amount">RM 4,500 <small>/mo</small></div>
+          <div class="price-period" data-en="Monthly retainer | Unlimited tweaks" data-zh="月度保留 | 无限调整">Monthly retainer | Unlimited tweaks</div>
+          <ul class="feature-list">
+            <li data-en="10+ automation flows" data-zh="10+自动化流程">10+ automation flows</li>
+            <li data-en="CRM & ERP integration" data-zh="CRM和ERP集成">CRM & ERP integration</li>
+            <li data-en="AI chat support agent" data-zh="AI聊天支持代理">AI chat support agent</li>
+            <li data-en="Dedicated support engineer" data-zh="专属支持工程师">Dedicated support engineer</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;" onclick="addToCart('Business Automation Pro','RM 4,500/mo')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 3 -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="tag" data-en="Service 03" data-zh="服务 03">Service 03</div>
+        <h3 style="font-size:1.6rem;font-weight:700;margin-bottom:1rem;" data-en="AI Consultancy" data-zh="AI咨询">AI Consultancy</h3>
+        <p style="color:var(--text2);margin-bottom:1.5rem;" data-en="Not sure where to start with AI? Our consultants help you build a practical, prioritised AI strategy aligned to your industry, team size, and budget — no fluff, just clear direction." data-zh="不确定从哪里开始AI？我们的顾问帮助您制定实用的、优先考虑的AI战略，与您的行业、团队规模和预算保持一致——没有废话，只有清晰的方向。">Not sure where to start with AI? Our consultants help you build a practical, prioritised AI strategy aligned to your industry, team size, and budget.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI Readiness Assessment" data-zh="AI准备状态评估">AI Readiness Assessment</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Technology Stack Recommendation" data-zh="技术栈推荐">Technology Stack Recommendation</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI Roadmap & Implementation Plan" data-zh="AI路线图和实施计划">AI Roadmap & Implementation Plan</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="ROI & Cost-Benefit Analysis" data-zh="ROI和成本效益分析">ROI & Cost-Benefit Analysis</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Vendor & Tool Selection Advisory" data-zh="供应商和工具选择咨询">Vendor & Tool Selection Advisory</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Change Management & AI Ethics" data-zh="变更管理和AI伦理">Change Management & AI Ethics</span></div>
+        </div>
+        <div style="background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:10px;padding:1rem;font-size:0.85rem;color:var(--green);" data-en="💡 Malaysia Gap: MDEC reports 70% of Malaysian companies want to adopt AI but don't know how. Structured consultancy is critically underserved." data-zh="💡 马来西亚缺口：MDEC报告显示，70%的马来西亚公司想要采用AI但不知道如何采用。结构化咨询服务严重不足。">💡 Malaysia Gap: MDEC reports 70% of Malaysian companies want to adopt AI but don't know how. Structured consultancy is critically underserved.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Discovery Session" data-zh="发现会话">Discovery Session</div>
+          <div class="price-amount">RM 1,500</div>
+          <div class="price-period" data-en="Half-day | 1 consultant" data-zh="半天 | 1位顾问">Half-day | 1 consultant</div>
+          <ul class="feature-list">
+            <li data-en="3-hour deep-dive workshop" data-zh="3小时深度研讨会">3-hour deep-dive workshop</li>
+            <li data-en="AI readiness report" data-zh="AI准备状态报告">AI readiness report</li>
+            <li data-en="Top 3 priority recommendations" data-zh="前3个优先建议">Top 3 priority recommendations</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="addToCart('Discovery Session','RM 1,500')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Most Popular" data-zh="最受欢迎">Most Popular</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="AI Strategy Package" data-zh="AI战略套餐">AI Strategy Package</div>
+          <div class="price-amount">RM 8,000</div>
+          <div class="price-period" data-en="4-week engagement" data-zh="4周参与">4-week engagement</div>
+          <ul class="feature-list">
+            <li data-en="Full AI audit of business" data-zh="完整业务AI审计">Full AI audit of business</li>
+            <li data-en="12-month AI roadmap" data-zh="12个月AI路线图">12-month AI roadmap</li>
+            <li data-en="Vendor negotiation support" data-zh="供应商谈判支持">Vendor negotiation support</li>
+            <li data-en="2 follow-up sessions (30 days)" data-zh="2次跟进会话（30天）">2 follow-up sessions (30 days)</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;" onclick="addToCart('AI Strategy Package','RM 8,000')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 4 -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="tag" data-en="Service 04" data-zh="服务 04">Service 04</div>
+        <h3 style="font-size:1.6rem;font-weight:700;margin-bottom:1rem;" data-en="AI Workshop & Training" data-zh="AI研讨会与培训">AI Workshop & Training</h3>
+        <p style="color:var(--text2);margin-bottom:1.5rem;" data-en="Empower your team or community with practical AI skills. Our bilingual trainers (English/Mandarin/BM) conduct workshops from beginner to advanced — hands-on, not death-by-slides." data-zh="用实用的AI技能赋能您的团队或社区。我们的双语培训师（英语/普通话/马来语）进行从初学者到高级的研讨会——实践型，而非幻灯片式。">Empower your team or community with practical AI skills. Our bilingual trainers conduct workshops from beginner to advanced — hands-on, not death-by-slides.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI for Beginners (no-code tools)" data-zh="AI入门（无代码工具）">AI for Beginners (no-code tools)</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="ChatGPT & Prompt Engineering" data-zh="ChatGPT和提示工程">ChatGPT & Prompt Engineering</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI for Marketing & Content Creation" data-zh="AI用于营销和内容创作">AI for Marketing & Content Creation</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI for Business Leaders (strategy-level)" data-zh="AI用于商业领袖（战略级别）">AI for Business Leaders (strategy-level)</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Corporate Team Upskilling (customised)" data-zh="企业团队技能提升（定制）">Corporate Team Upskilling (customised)</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Student AI Bootcamps" data-zh="学生AI训练营">Student AI Bootcamps</span></div>
+        </div>
+        <div style="background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:10px;padding:1rem;font-size:0.85rem;color:var(--green);" data-en="💡 Malaysia Gap: AI training is expensive & mostly in English. We deliver in BM and Mandarin at accessible prices — critically missing in Malaysia." data-zh="💡 马来西亚缺口：AI培训昂贵且大多以英语进行。我们以马来语和普通话提供培训，价格合理——在马来西亚这是严重缺失的。">💡 Malaysia Gap: AI training is expensive & mostly in English. We deliver in BM and Mandarin at accessible prices — critically missing in Malaysia.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Public Workshop (1 day)" data-zh="公开研讨会（1天）">Public Workshop (1 day)</div>
+          <div class="price-amount">RM 500 <small>/pax</small></div>
+          <div class="price-period" data-en="8 hours | Includes lunch & materials" data-zh="8小时 | 包含午餐和材料">8 hours | Includes lunch & materials</div>
+          <ul class="feature-list">
+            <li data-en="Hands-on AI tools practice" data-zh="实践AI工具练习">Hands-on AI tools practice</li>
+            <li data-en="Certificate of completion" data-zh="完成证书">Certificate of completion</li>
+            <li data-en="Post-workshop community access" data-zh="研讨会后社区访问">Post-workshop community access</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="addToCart('AI Workshop (1 day)','RM 500/pax')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Corporate" data-zh="企业">Corporate</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Corporate AI Training" data-zh="企业AI培训">Corporate AI Training</div>
+          <div class="price-amount">RM 8,000 <small>/group</small></div>
+          <div class="price-period" data-en="Up to 20 pax | 2 days" data-zh="最多20人 | 2天">Up to 20 pax | 2 days</div>
+          <ul class="feature-list">
+            <li data-en="Customised curriculum for your industry" data-zh="为您的行业定制的课程">Customised curriculum for your industry</li>
+            <li data-en="At your office or our training centre" data-zh="在您的办公室或我们的培训中心">At your office or our training centre</li>
+            <li data-en="30-day post-training support" data-zh="30天培训后支持">30-day post-training support</li>
+            <li data-en="HRDC Claimable (registration in progress)" data-zh="HRDC可申索（注册中）">HRDC Claimable (registration in progress)</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;" onclick="addToCart('Corporate AI Training','RM 8,000/group')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICE 5 -->
+    <div class="divider"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="tag" data-en="Service 05" data-zh="服务 05">Service 05</div>
+        <h3 style="font-size:1.6rem;font-weight:700;margin-bottom:1rem;" data-en="AI Tools Installation & Setup" data-zh="AI工具安装与设置">AI Tools Installation & Setup</h3>
+        <p style="color:var(--text2);margin-bottom:1.5rem;" data-en="We set up, configure and optimise AI tools for you — so you skip the learning curve and start getting value immediately. Think of us as your personal AI tools technician." data-zh="我们为您设置、配置和优化AI工具——让您跳过学习曲线，立即开始获得价值。把我们想象成您的个人AI工具技术人员。">We set up, configure and optimise AI tools for you — so you skip the learning curve and start getting value immediately.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;">
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="ChatGPT / Claude / Gemini — Team Setup" data-zh="ChatGPT / Claude / Gemini — 团队设置">ChatGPT / Claude / Gemini — Team Setup</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Microsoft Copilot — Office 365 Integration" data-zh="Microsoft Copilot — Office 365集成">Microsoft Copilot — Office 365 Integration</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Make.com / n8n Automation Workflows" data-zh="Make.com / n8n自动化工作流">Make.com / n8n Automation Workflows</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Midjourney / Canva AI Setup & Training" data-zh="Midjourney / Canva AI设置和培训">Midjourney / Canva AI Setup & Training</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="AI CRM (HubSpot, Zoho AI) Configuration" data-zh="AI CRM（HubSpot, Zoho AI）配置">AI CRM (HubSpot, Zoho AI) Configuration</span></div>
+          <div style="font-size:0.88rem;color:var(--text2);">✓ <span data-en="Custom AI Prompt Library Creation" data-zh="自定义AI提示库创建">Custom AI Prompt Library Creation</span></div>
+        </div>
+        <div style="background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:10px;padding:1rem;font-size:0.85rem;color:var(--green);" data-en="💡 Malaysia Gap: Businesses pay for AI tools but rarely use them effectively. Setup + training together is our unique differentiator." data-zh="💡 马来西亚缺口：企业为AI工具付费但很少有效使用。设置+培训结合是我们独特的差异化优势。">💡 Malaysia Gap: Businesses pay for AI tools but rarely use them effectively. Setup + training together is our unique differentiator.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="Single Tool Setup" data-zh="单工具设置">Single Tool Setup</div>
+          <div class="price-amount">RM 800</div>
+          <div class="price-period" data-en="One-time | 1 tool, 1 day" data-zh="一次性 | 1个工具，1天">One-time | 1 tool, 1 day</div>
+          <ul class="feature-list">
+            <li data-en="Installation & configuration" data-zh="安装和配置">Installation & configuration</li>
+            <li data-en="1-hour walkthrough training" data-zh="1小时演示培训">1-hour walkthrough training</li>
+            <li data-en="7-day support" data-zh="7天支持">7-day support</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;" onclick="addToCart('Single Tool Setup','RM 800')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Best Seller" data-zh="热销">Best Seller</div>
+          <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.3rem;" data-en="AI Tools Bundle Setup" data-zh="AI工具套餐设置">AI Tools Bundle Setup</div>
+          <div class="price-amount">RM 3,500</div>
+          <div class="price-period" data-en="One-time | Up to 5 tools" data-zh="一次性 | 最多5个工具">One-time | Up to 5 tools</div>
+          <ul class="feature-list">
+            <li data-en="5 AI tools setup & integration" data-zh="5个AI工具设置和集成">5 AI tools setup & integration</li>
+            <li data-en="Full team onboarding (up to 10 pax)" data-zh="完整团队入职（最多10人）">Full team onboarding (up to 10 pax)</li>
+            <li data-en="Custom prompt library (50 prompts)" data-zh="自定义提示库（50个提示）">Custom prompt library (50 prompts)</li>
+            <li data-en="30-day helpdesk support" data-zh="30天帮助台支持">30-day helpdesk support</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;" onclick="addToCart('AI Tools Bundle Setup','RM 3,500')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- B2B PAGE -->
+<div id="page-b2b" class="page">
+  <div class="section">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:6px 16px;margin-bottom:2rem;">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--accent);"></div>
+      <span style="font-size:0.8rem;font-weight:600;" data-en="Enterprise & Corporate Solutions" data-zh="企业和公司解决方案">Enterprise & Corporate Solutions</span>
+    </div>
+    <h2 class="section-title" data-en="AI Solutions for Enterprises & Corporations" data-zh="企业和公司的AI解决方案">AI Solutions for Enterprises & Corporations</h2>
+    <p class="section-sub" data-en="Designed for decision-makers in enterprise, government-linked companies, large SMEs and corporate groups across Malaysia. ROI-driven, compliance-ready, scalable." data-zh="为马来西亚企业、政府关联公司、大型中小企业和企业集团的决策者设计。以ROI为驱动，合规就绪，可扩展。">Designed for decision-makers in enterprise, government-linked companies, large SMEs and corporate groups across Malaysia.</p>
+    <br><br>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem;">
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏭</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Manufacturing & Logistics" data-zh="制造和物流">Manufacturing & Logistics</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="Predictive maintenance, quality control AI, supply chain optimisation." data-zh="预测性维护、质量控制AI、供应链优化。">Predictive maintenance, quality control AI, supply chain optimisation.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏦</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Finance & Banking" data-zh="金融和银行">Finance & Banking</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="Fraud detection, risk assessment, AI-powered customer service bots." data-zh="欺诈检测、风险评估、AI驱动的客户服务机器人。">Fraud detection, risk assessment, AI-powered customer service bots.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏥</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Healthcare & Pharma" data-zh="医疗保健和制药">Healthcare & Pharma</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="Diagnostic AI tools, patient data management, appointment automation." data-zh="诊断AI工具、患者数据管理、预约自动化。">Diagnostic AI tools, patient data management, appointment automation.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🎓</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Education & EdTech" data-zh="教育和教育科技">Education & EdTech</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="Personalised learning platforms, AI grading tools, student analytics." data-zh="个性化学习平台、AI评分工具、学生分析。">Personalised learning platforms, AI grading tools, student analytics.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🏢</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Property & Construction" data-zh="房地产和建筑">Property & Construction</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="AI valuation tools, site safety monitoring, document management." data-zh="AI估值工具、现场安全监控、文档管理。">AI valuation tools, site safety monitoring, document management.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.75rem;">🛒</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Retail & E-Commerce" data-zh="零售和电子商务">Retail & E-Commerce</div>
+        <div style="font-size:0.88rem;color:var(--text2);" data-en="AI product recommendations, demand forecasting, inventory AI." data-zh="AI产品推荐、需求预测、库存AI。">AI product recommendations, demand forecasting, inventory AI.</div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:2.5rem;">
+      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;" data-en="B2B Enterprise Packages" data-zh="B2B企业套餐">B2B Enterprise Packages</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-weight:700;margin-bottom:0.5rem;" data-en="AI Starter Corporate" data-zh="AI初始企业">AI Starter Corporate</div>
+          <div class="price-amount" style="font-size:1.8rem;">RM 12,000</div>
+          <div class="price-period" data-en="3-month engagement" data-zh="3个月参与">3-month engagement</div>
+          <ul class="feature-list">
+            <li data-en="Consultancy + 1 AI tool setup" data-zh="咨询 + 1个AI工具设置">Consultancy + 1 AI tool setup</li>
+            <li data-en="Team training (10 pax)" data-zh="团队培训（10人）">Team training (10 pax)</li>
+            <li data-en="Quarterly review" data-zh="季度审查">Quarterly review</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;font-size:0.85rem;" onclick="showPage('contact')" data-en="Get Proposal" data-zh="获取提案">Get Proposal</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="Recommended" data-zh="推荐">Recommended</div>
+          <div style="font-weight:700;margin-bottom:0.5rem;" data-en="AI Growth Corporate" data-zh="AI增长企业">AI Growth Corporate</div>
+          <div class="price-amount" style="font-size:1.8rem;">RM 35,000</div>
+          <div class="price-period" data-en="6-month engagement" data-zh="6个月参与">6-month engagement</div>
+          <ul class="feature-list">
+            <li data-en="Full AI strategy + development" data-zh="完整AI战略+开发">Full AI strategy + development</li>
+            <li data-en="3 automation workflows" data-zh="3个自动化工作流">3 automation workflows</li>
+            <li data-en="Training (30 pax)" data-zh="培训（30人）">Training (30 pax)</li>
+            <li data-en="Dedicated project manager" data-zh="专属项目经理">Dedicated project manager</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;font-size:0.85rem;" onclick="showPage('contact')" data-en="Get Proposal" data-zh="获取提案">Get Proposal</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-weight:700;margin-bottom:0.5rem;" data-en="AI Enterprise Transform" data-zh="AI企业转型">AI Enterprise Transform</div>
+          <div class="price-amount" style="font-size:1.8rem;">RM 100K+</div>
+          <div class="price-period" data-en="12-month partnership" data-zh="12个月合作伙伴关系">12-month partnership</div>
+          <ul class="feature-list">
+            <li data-en="Full AI digital transformation" data-zh="完整AI数字化转型">Full AI digital transformation</li>
+            <li data-en="Embedded AI team (3 engineers)" data-zh="嵌入式AI团队（3名工程师）">Embedded AI team (3 engineers)</li>
+            <li data-en="12-month SLA + executive reporting" data-zh="12个月SLA+高管报告">12-month SLA + executive reporting</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;font-size:0.85rem;" onclick="showPage('contact')" data-en="Contact CEO" data-zh="联系CEO">Contact CEO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- B2C PAGE -->
+<div id="page-b2c" class="page">
+  <div class="section">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,168,107,0.08);border:1px solid rgba(0,168,107,0.2);border-radius:100px;padding:6px 16px;margin-bottom:2rem;">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--green);"></div>
+      <span style="font-size:0.8rem;font-weight:600;color:var(--green);" data-en="For Everyone — Individuals, SMEs, Students" data-zh="适合所有人——个人、中小企业、学生">For Everyone — Individuals, SMEs, Students</span>
+    </div>
+    <h2 class="section-title" data-en="AI for You — No Tech Background Needed" data-zh="AI为你——无需技术背景">AI for You — No Tech Background Needed</h2>
+    <p class="section-sub" data-en="Whether you're a freelancer, student, small business owner or just AI-curious — we have practical, affordable AI solutions designed for real Malaysians." data-zh="无论您是自由职业者、学生、小企业主，还是只是对AI感到好奇——我们都有为真实马来西亚人设计的实用、实惠的AI解决方案。">Whether you're a freelancer, student, small business owner or just AI-curious — we have practical, affordable AI solutions.</p>
+    <br><br>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:3rem;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">👨‍💼</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Freelancers & Solopreneurs" data-zh="自由职业者和独立创业者">Freelancers & Solopreneurs</div>
+        <div style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;" data-en="Automate your admin, create content faster, and deliver better work with AI tools." data-zh="自动化您的行政工作，更快创建内容，并用AI工具提供更好的工作。">Automate your admin, create content faster, and deliver better work with AI tools.</div>
+        <div style="font-weight:700;color:var(--accent);">from RM 500</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">🏪</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Small Retail & F&B" data-zh="小型零售和餐饮">Small Retail & F&B</div>
+        <div style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;" data-en="WhatsApp chatbots, order automation, menu AI, social media content creation." data-zh="WhatsApp聊天机器人、订单自动化、菜单AI、社交媒体内容创作。">WhatsApp chatbots, order automation, menu AI, social media content creation.</div>
+        <div style="font-weight:700;color:var(--accent);">from RM 800</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">🎓</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Students & Graduates" data-zh="学生和毕业生">Students & Graduates</div>
+        <div style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;" data-en="AI skills bootcamps, career upskilling, portfolio projects with AI tools." data-zh="AI技能训练营、职业技能提升、AI工具组合项目。">AI skills bootcamps, career upskilling, portfolio projects with AI tools.</div>
+        <div style="font-weight:700;color:var(--accent);">from RM 299</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;">🏡</div>
+        <div style="font-family:'Outfit',sans-serif;font-weight:700;margin-bottom:0.5rem;" data-en="Home-Based Business" data-zh="家庭式生意">Home-Based Business</div>
+        <div style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;" data-en="AI for Instagram/TikTok, WhatsApp business automation, simple AI website." data-zh="Instagram/TikTok的AI，WhatsApp业务自动化，简单的AI网站。">AI for Instagram/TikTok, WhatsApp business automation, simple AI website.</div>
+        <div style="font-weight:700;color:var(--accent);">from RM 600</div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--accent-bg) 0%,var(--bg2) 100%);border:1px solid rgba(0,102,255,0.2);border-radius:var(--radius2);padding:2.5rem;margin-bottom:2rem;">
+      <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;" data-en="🎯 B2C Popular Packages" data-zh="🎯 B2C 热门套餐">🎯 B2C Popular Packages</h3>
+      <p style="font-size:0.88rem;color:var(--text2);margin-bottom:2rem;" data-en="Affordable, practical, results-focused." data-zh="实惠、实用、注重结果。">Affordable, practical, results-focused.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div class="pricing-card">
+          <div style="font-weight:700;font-size:0.95rem;margin-bottom:0.5rem;" data-en="AI Starter (Student)" data-zh="AI入门（学生）">AI Starter (Student)</div>
+          <div class="price-amount" style="font-size:1.6rem;">RM 299</div>
+          <div class="price-period" data-en="1-day bootcamp" data-zh="1天训练营">1-day bootcamp</div>
+          <ul class="feature-list">
+            <li data-en="ChatGPT & Midjourney basics" data-zh="ChatGPT和Midjourney基础">ChatGPT & Midjourney basics</li>
+            <li data-en="Resume writing with AI" data-zh="用AI写简历">Resume writing with AI</li>
+            <li data-en="Cert + community access" data-zh="证书+社区访问">Cert + community access</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;font-size:0.82rem;" onclick="addToCart('AI Starter Student','RM 299')" data-en="Enrol Now" data-zh="立即报名">Enrol Now</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge" data-en="SME Favourite" data-zh="中小企业最爱">SME Favourite</div>
+          <div style="font-weight:700;font-size:0.95rem;margin-bottom:0.5rem;" data-en="SME AI Kickstart" data-zh="中小企业AI启动">SME AI Kickstart</div>
+          <div class="price-amount" style="font-size:1.6rem;">RM 2,500</div>
+          <div class="price-period" data-en="All-in-one starter" data-zh="一体化入门">All-in-one starter</div>
+          <ul class="feature-list">
+            <li data-en="WhatsApp chatbot setup" data-zh="WhatsApp聊天机器人设置">WhatsApp chatbot setup</li>
+            <li data-en="Social media AI content (1 month)" data-zh="社交媒体AI内容（1个月）">Social media AI content (1 month)</li>
+            <li data-en="AI tools for owner + 2 staff" data-zh="所有者+2名员工的AI工具">AI tools for owner + 2 staff</li>
+            <li data-en="RM 500 savings vs individual" data-zh="与单独购买相比节省RM 500">RM 500 savings vs individual</li>
+          </ul>
+          <button class="btn-lg primary" style="width:100%;justify-content:center;font-size:0.82rem;" onclick="addToCart('SME AI Kickstart','RM 2,500')" data-en="Get This Deal" data-zh="获取此优惠">Get This Deal</button>
+        </div>
+        <div class="pricing-card">
+          <div style="font-weight:700;font-size:0.95rem;margin-bottom:0.5rem;" data-en="Freelancer AI Pro" data-zh="自由职业者AI专业版">Freelancer AI Pro</div>
+          <div class="price-amount" style="font-size:1.6rem;">RM 1,200</div>
+          <div class="price-period" data-en="One-time" data-zh="一次性">One-time</div>
+          <ul class="feature-list">
+            <li data-en="5 AI tools setup & training" data-zh="5个AI工具设置和培训">5 AI tools setup & training</li>
+            <li data-en="AI content templates (100+)" data-zh="AI内容模板（100+）">AI content templates (100+)</li>
+            <li data-en="Prompt library for your niche" data-zh="针对您的细分市场的提示库">Prompt library for your niche</li>
+          </ul>
+          <button class="btn-lg" style="width:100%;justify-content:center;font-size:0.82rem;" onclick="addToCart('Freelancer AI Pro','RM 1,200')" data-en="Add to Package" data-zh="添加到套餐">Add to Package</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESOURCES PAGE -->
+<div id="page-resources" class="page">
+  <div class="section">
+    <div class="section-label" data-en="AI Knowledge Hub" data-zh="AI知识中心">AI Knowledge Hub</div>
+    <h2 class="section-title" data-en="Free AI Resources & Know-How" data-zh="免费AI资源和知识">Free AI Resources & Know-How</h2>
+    <p class="section-sub" data-en="Curated guides, tutorials and tools to help you understand and apply AI — all in one place, updated regularly." data-zh="精心策划的指南、教程和工具，帮助您理解和应用AI——全部集中在一个地方，定期更新。">Curated guides, tutorials and tools to help you understand and apply AI — all in one place, updated regularly.</p>
+    <br>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="filterResources('all')" data-en="All" data-zh="全部">All</button>
+      <button class="tab-btn" onclick="filterResources('guide')" data-en="Guides" data-zh="指南">Guides</button>
+      <button class="tab-btn" onclick="filterResources('tool')" data-en="AI Tools" data-zh="AI工具">AI Tools</button>
+      <button class="tab-btn" onclick="filterResources('video')" data-en="Videos" data-zh="视频">Videos</button>
+      <button class="tab-btn" onclick="filterResources('template')" data-en="Templates" data-zh="模板">Templates</button>
+    </div>
+
+    <div id="resources-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;">
+      <div class="resource-card" data-cat="guide">
+        <div class="resource-type" style="color:var(--accent);" data-en="📖 GUIDE" data-zh="📖 指南">📖 GUIDE</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="What is AI? A Beginner's Guide (BM/EN)" data-zh="什么是AI？初学者指南（马来语/英语）">What is AI? A Beginner's Guide (BM/EN)</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Understand AI concepts in simple language — no technical background needed." data-zh="用简单语言理解AI概念——无需技术背景。">Understand AI concepts in simple language — no technical background needed.</div>
+        <div style="margin-top:1rem;"><span class="tag" data-en="Beginner" data-zh="初学者">Beginner</span></div>
+      </div>
+      <div class="resource-card" data-cat="tool">
+        <div class="resource-type" style="color:var(--green);" data-en="🛠️ TOOL" data-zh="🛠️ 工具">🛠️ TOOL</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="Top 10 Free AI Tools for Malaysians" data-zh="马来西亚人十大免费AI工具">Top 10 Free AI Tools for Malaysians</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="ChatGPT, Canva AI, Gamma, Perplexity, Otter.ai and more — free tiers explained." data-zh="ChatGPT、Canva AI、Gamma、Perplexity、Otter.ai等——免费版解释。">ChatGPT, Canva AI, Gamma, Perplexity, Otter.ai and more — free tiers explained.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(0,168,107,0.1);color:var(--green);" data-en="Free Tools" data-zh="免费工具">Free Tools</span></div>
+      </div>
+      <div class="resource-card" data-cat="guide">
+        <div class="resource-type" style="color:var(--accent);" data-en="📖 GUIDE" data-zh="📖 指南">📖 GUIDE</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="How to Write Perfect AI Prompts" data-zh="如何写完美的AI提示">How to Write Perfect AI Prompts</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Prompt engineering techniques to get 10x better results from ChatGPT and Claude." data-zh="提示工程技术，从ChatGPT和Claude获得10倍更好的结果。">Prompt engineering techniques to get 10x better results from ChatGPT and Claude.</div>
+        <div style="margin-top:1rem;"><span class="tag" data-en="Intermediate" data-zh="中级">Intermediate</span></div>
+      </div>
+      <div class="resource-card" data-cat="video">
+        <div class="resource-type" style="color:var(--amber);" data-en="▶ VIDEO" data-zh="▶ 视频">▶ VIDEO</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="AI Automation with Make.com — Tutorial" data-zh="使用Make.com的AI自动化——教程">AI Automation with Make.com — Tutorial</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Build your first automation workflow in 30 minutes — no coding required." data-zh="在30分钟内构建您的第一个自动化工作流——无需编程。">Build your first automation workflow in 30 minutes — no coding required.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(224,128,0,0.1);color:var(--amber);" data-en="30 min" data-zh="30分钟">30 min</span></div>
+      </div>
+      <div class="resource-card" data-cat="template">
+        <div class="resource-type" style="color:var(--red);" data-en="📋 TEMPLATE" data-zh="📋 模板">📋 TEMPLATE</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="100 ChatGPT Prompts for Malaysian SMEs" data-zh="马来西亚中小企业的100个ChatGPT提示">100 ChatGPT Prompts for Malaysian SMEs</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Ready-to-use prompts for marketing, customer service, HR, finance & operations." data-zh="用于营销、客户服务、人力资源、财务和运营的即用型提示。">Ready-to-use prompts for marketing, customer service, HR, finance & operations.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(217,48,37,0.1);color:var(--red);" data-en="Free Download" data-zh="免费下载">Free Download</span></div>
+      </div>
+      <div class="resource-card" data-cat="guide">
+        <div class="resource-type" style="color:var(--accent);" data-en="📖 GUIDE" data-zh="📖 指南">📖 GUIDE</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="Malaysia AI Grants & Funding Guide 2025" data-zh="马来西亚AI补助金和资助指南2025">Malaysia AI Grants & Funding Guide 2025</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="MDEC, MTDC, SME Corp, MRANTI — all AI grants available for Malaysian companies." data-zh="MDEC、MTDC、SME Corp、MRANTI——马来西亚公司可获得的所有AI补助金。">MDEC, MTDC, SME Corp, MRANTI — all AI grants available for Malaysian companies.</div>
+        <div style="margin-top:1rem;"><span class="tag" data-en="Business" data-zh="商业">Business</span></div>
+      </div>
+      <div class="resource-card" data-cat="tool">
+        <div class="resource-type" style="color:var(--green);" data-en="🛠️ TOOL" data-zh="🛠️ 工具">🛠️ TOOL</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="AI Tools Comparison: ChatGPT vs Claude vs Gemini" data-zh="AI工具比较：ChatGPT vs Claude vs Gemini">AI Tools Comparison: ChatGPT vs Claude vs Gemini</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Which AI chatbot should you use? Side-by-side comparison for Malaysian users." data-zh="您应该使用哪种AI聊天机器人？为马来西亚用户的并排比较。">Which AI chatbot should you use? Side-by-side comparison for Malaysian users.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(0,168,107,0.1);color:var(--green);" data-en="Comparison" data-zh="比较">Comparison</span></div>
+      </div>
+      <div class="resource-card" data-cat="video">
+        <div class="resource-type" style="color:var(--amber);" data-en="▶ VIDEO" data-zh="▶ 视频">▶ VIDEO</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="AI for Warung & F&B — Malay Tutorial" data-zh="AI用于小贩和餐饮——马来语教程">AI for Warung & F&B — Malay Tutorial</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Cara guna AI untuk promosi, order, dan urus pelanggan warung anda." data-zh="如何使用AI进行促销、订单和管理您的小摊位客户。">Cara guna AI untuk promosi, order, dan urus pelanggan warung anda.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(224,128,0,0.1);color:var(--amber);" data-en="BM" data-zh="马来语">BM</span></div>
+      </div>
+      <div class="resource-card" data-cat="template">
+        <div class="resource-type" style="color:var(--red);" data-en="📋 TEMPLATE" data-zh="📋 模板">📋 TEMPLATE</div>
+        <div style="font-weight:700;margin-bottom:0.4rem;" data-en="AI Business Plan Template (Editable)" data-zh="AI商业计划模板（可编辑）">AI Business Plan Template (Editable)</div>
+        <div style="font-size:0.85rem;color:var(--text2);" data-en="Use ChatGPT + this template to write a complete business plan in under 2 hours." data-zh="使用ChatGPT+此模板在不到2小时内写出完整的商业计划。">Use ChatGPT + this template to write a complete business plan in under 2 hours.</div>
+        <div style="margin-top:1rem;"><span class="tag" style="background:rgba(217,48,37,0.1);color:var(--red);" data-en="Free" data-zh="免费">Free</span></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;padding:2.5rem;background:var(--accent-bg);border:1px solid rgba(0,102,255,0.2);border-radius:var(--radius2);">
+      <h3 style="font-weight:700;margin-bottom:0.5rem;" data-en="Want access to our full resource library?" data-zh="想访问我们的完整资源库吗？">Want access to our full resource library?</h3>
+      <p style="font-size:0.9rem;color:var(--text2);margin-bottom:1.5rem;" data-en="Members get 50+ exclusive guides, templates, video tutorials and a private community." data-zh="会员可获得50+独家指南、模板、视频教程和私人社区。">Members get 50+ exclusive guides, templates, video tutorials and a private community.</p>
+      <button class="btn-lg primary" onclick="openModal('registerModal')" data-en="Join Free — AI Studio Member" data-zh="免费加入——AI Studio会员">Join Free — AI Studio Member</button>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBER PAGE -->
+<div id="page-member" class="page">
+  <div class="section">
+    <div style="display:flex;gap:3rem;align-items:flex-start;" class="grid-2">
+      <div>
+        <div class="section-label" data-en="Member Zone" data-zh="会员区">Member Zone</div>
+        <h2 class="section-title" data-en="AI Studio Tech Membership" data-zh="AI Studio Tech 会员资格">AI Studio Tech Membership</h2>
+        <p style="color:var(--text2);margin-bottom:2rem;" data-en="Join a growing community of AI practitioners, business owners, students and professionals across Malaysia." data-zh="加入马来西亚不断壮大的AI从业者、企业主、学生和专业人士社区。">Join a growing community of AI practitioners, business owners, students and professionals across Malaysia.</p>
+        
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;">
+          <div class="card" style="padding:1.2rem;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:44px;height:44px;border-radius:12px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🎁</div>
+              <div>
+                <div style="font-weight:600;font-size:0.92rem;" data-en="Free Member Benefits" data-zh="免费会员福利">Free Member Benefits</div>
+                <div style="font-size:0.82rem;color:var(--text2);" data-en="Access resource library, community forum, monthly AI newsletter." data-zh="访问资源库、社区论坛、每月AI通讯。">Access resource library, community forum, monthly AI newsletter.</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="padding:1.2rem;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:44px;height:44px;border-radius:12px;background:rgba(0,168,107,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">⭐</div>
+              <div>
+                <div style="font-weight:600;font-size:0.92rem;" data-en="Pro Member — RM 99/month" data-zh="专业会员——RM 99/月">Pro Member — RM 99/month</div>
+                <div style="font-size:0.82rem;color:var(--text2);" data-en="Full resource access, 20% off all services, priority support, monthly webinars." data-zh="完整资源访问，所有服务享受20%折扣，优先支持，每月网络研讨会。">Full resource access, 20% off all services, priority support, monthly webinars.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="member-logged-out">
+          <button class="btn-lg primary" onclick="openModal('registerModal')" data-en="Create Free Account →" data-zh="创建免费账户 →">Create Free Account →</button>
+          <button class="btn-lg" style="margin-left:8px;" onclick="openModal('loginModal')" data-en="Sign In" data-zh="登录">Sign In</button>
+        </div>
+        <div id="member-logged-in" style="display:none;">
+          <div style="background:var(--accent-bg);border:1px solid rgba(0,102,255,0.2);border-radius:var(--radius2);padding:1.5rem;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+              <div class="avatar" id="memberAvatar">A</div>
+              <div>
+                <div style="font-weight:700;" id="memberName">Member</div>
+                <div style="font-size:0.85rem;color:var(--text3);" id="memberEmail">member@example.com</div>
+              </div>
+            </div>
+            <div style="font-size:0.85rem;color:var(--green);">✅ <span data-en="Free Member — Active" data-zh="免费会员——活跃">Free Member — Active</span></div>
+            <button class="btn-sm" style="margin-top:1rem;" onclick="logoutMember()" data-en="Sign Out" data-zh="退出">Sign Out</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:2rem;">
+          <h4 style="font-weight:700;margin-bottom:1.5rem;font-size:1rem;" data-en="Member Stats" data-zh="会员统计">Member Stats</h4>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div style="text-align:center;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);">
+              <div style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:700;">1,240</div>
+              <div style="font-size:0.78rem;color:var(--text3);" data-en="Members" data-zh="会员">Members</div>
+            </div>
+            <div style="text-align:center;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);">
+              <div style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:700;">52</div>
+              <div style="font-size:0.78rem;color:var(--text3);" data-en="Resources" data-zh="资源">Resources</div>
+            </div>
+            <div style="text-align:center;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);">
+              <div style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:700;">18</div>
+              <div style="font-size:0.78rem;color:var(--text3);" data-en="Webinars" data-zh="网络研讨会">Webinars</div>
+            </div>
+            <div style="text-align:center;padding:1.2rem;background:var(--bg3);border-radius:var(--radius);">
+              <div style="font-family:'Outfit',sans-serif;font-size:1.8rem;font-weight:700;">4</div>
+              <div style="font-size:0.78rem;color:var(--text3);" data-en="States (MY)" data-zh="州（马来西亚）">States (MY)</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div style="font-size:0.85rem;color:var(--text3);font-family:'JetBrains Mono',monospace;">
+            <div data-en="// Recent member activity" data-zh="// 最近会员活动">// Recent member activity</div>
+            <div style="margin-top:0.5rem;display:flex;flex-direction:column;gap:6px;">
+              <div>Ahmad joined — 2h ago</div>
+              <div>Sarah completed prompt course — 4h ago</div>
+              <div>Wei Ming joined — yesterday</div>
+              <div>Priya downloaded templates — yesterday</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div class="section">
+    <div class="section-label" data-en="Get In Touch" data-zh="联系我们">Get In Touch</div>
+    <h2 class="section-title" data-en="Contact AI Studio Tech" data-zh="联系 AI Studio Tech">Contact AI Studio Tech</h2>
+    <p class="section-sub" data-en="Drop us your enquiry and we'll reply within 24 hours. Or book a free 30-minute consultation call." data-zh="给我们发送您的查询，我们将在24小时内回复。或预约免费30分钟咨询电话。">Drop us your enquiry and we'll reply within 24 hours. Or book a free 30-minute consultation call.</p>
+    <br><br>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;" class="grid-2">
+      <div>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-group">
+            <label class="form-label" data-en="Your Name *" data-zh="您的姓名 *">Your Name *</label>
+            <input type="text" class="form-input" id="cName" required placeholder="Ahmad bin Abdullah">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Email Address *" data-zh="电子邮件地址 *">Email Address *</label>
+            <input type="email" class="form-input" id="cEmail" required placeholder="ahmad@company.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Phone / WhatsApp" data-zh="电话 / WhatsApp">Phone / WhatsApp</label>
+            <input type="tel" class="form-input" id="cPhone" placeholder="+60 12 345 6789">
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="I am a..." data-zh="我是...">I am a...</label>
+            <select class="form-input form-select" id="cType">
+              <option data-en="Business Owner / Company" data-zh="企业主/公司">Business Owner / Company</option>
+              <option data-en="Individual / Freelancer" data-zh="个人/自由职业者">Individual / Freelancer</option>
+              <option data-en="Student" data-zh="学生">Student</option>
+              <option data-en="Government / GLC" data-zh="政府/政联公司">Government / GLC</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Service Interested In" data-zh="感兴趣的服务">Service Interested In</label>
+            <select class="form-input form-select" id="cService">
+              <option data-en="AI Project Development" data-zh="AI项目开发">AI Project Development</option>
+              <option data-en="AI Automation" data-zh="AI自动化">AI Automation</option>
+              <option data-en="AI Consultancy" data-zh="AI咨询">AI Consultancy</option>
+              <option data-en="AI Workshop & Training" data-zh="AI研讨会与培训">AI Workshop & Training</option>
+              <option data-en="AI Tools Installation & Setup" data-zh="AI工具安装与设置">AI Tools Installation & Setup</option>
+              <option data-en="Not sure — need guidance" data-zh="不确定——需要指导">Not sure — need guidance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Your Message *" data-zh="您的留言 *">Your Message *</label>
+            <textarea class="form-input" id="cMessage" required placeholder="Tell us about your project or question..."></textarea>
+          </div>
+          <button type="submit" class="btn-lg primary" style="width:100%;justify-content:center;" data-en="Send Message →" data-zh="发送消息 →">Send Message →</button>
+          <div class="success-msg" id="contactSuccess">
+            ✅ <strong data-en="Message sent!" data-zh="消息已发送！">Message sent!</strong> <span data-en="We'll reply within 24 hours. Check your inbox for a confirmation email." data-zh="我们将在24小时内回复。请检查您的收件箱以获取确认邮件。">We'll reply within 24 hours. Check your inbox for a confirmation email.</span>
+          </div>
+        </form>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="card" style="padding:1.5rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.75rem;">📍</div>
+          <div style="font-weight:700;margin-bottom:0.3rem;" data-en="Office" data-zh="办公室">Office</div>
+          <div style="font-size:0.88rem;color:var(--text2);">Kuala Lumpur, Malaysia<br>Virtual office available nationwide</div>
+        </div>
+        <div class="card" style="padding:1.5rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.75rem;">💬</div>
+          <div style="font-weight:700;margin-bottom:0.3rem;" data-en="WhatsApp Us" data-zh="WhatsApp我们">WhatsApp Us</div>
+          <div style="font-size:0.88rem;color:var(--text2);">+60 11 1234 5678<br>Mon–Sat, 9am–6pm MYT</div>
+        </div>
+        <div class="card" style="padding:1.5rem;">
+          <div style="font-size:1.5rem;margin-bottom:0.75rem;">📧</div>
+          <div style="font-weight:700;margin-bottom:0.3rem;" data-en="Email" data-zh="电子邮件">Email</div>
+          <div style="font-size:0.88rem;color:var(--text2);">hello@aistudiotech.my<br>support@aistudiotech.my</div>
+        </div>
+        <div style="background:var(--accent-bg);border:1px solid rgba(0,102,255,0.2);border-radius:var(--radius);padding:1.5rem;">
+          <div style="font-weight:700;margin-bottom:0.5rem;" data-en="🎁 Free Consultation" data-zh="🎁 免费咨询">🎁 Free Consultation</div>
+          <div style="font-size:0.85rem;color:var(--text2);margin-bottom:1rem;" data-en="Book a free 30-minute AI strategy call with our consultants — no obligation." data-zh="预约与我们顾问的免费30分钟AI战略通话——无义务。">Book a free 30-minute AI strategy call with our consultants — no obligation.</div>
+          <button class="btn-lg primary" style="font-size:0.85rem;" onclick="openModal('registerModal')" data-en="Book Free Call →" data-zh="预约免费通话 →">Book Free Call →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end pages wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="9" fill="#0066ff"/>
+          <circle cx="16" cy="16" r="5" fill="none" stroke="white" stroke-width="1.8"/>
+          <line x1="16" y1="5" x2="16" y2="9.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16" y1="22.5" x2="16" y2="27" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="5" y1="16" x2="9.5" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="22.5" y1="16" x2="27" y2="16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="2" fill="white"/>
+          <circle cx="16" cy="6.5" r="1.3" fill="#7ab8ff"/>
+          <circle cx="16" cy="25.5" r="1.3" fill="#7ab8ff"/>
+          <circle cx="6.5" cy="16" r="1.3" fill="#7ab8ff"/>
+          <circle cx="25.5" cy="16" r="1.3" fill="#7ab8ff"/>
+        </svg>
+        <div class="footer-brand">AI Studio <span style="color:var(--accent);">Tech</span></div>
+      </div>
+      <p class="footer-desc" data-en="Malaysia's leading AI solutions partner. We build, train and automate — so you can focus on growth. Serving businesses and individuals across Malaysia." data-zh="马来西亚领先的AI解决方案伙伴。我们构建、培训和自动化——让您专注于增长。服务于马来西亚各地的企业和个人。">Malaysia's leading AI solutions partner. We build, train and automate — so you can focus on growth.</p>
+      <div style="margin-top:1.2rem;display:flex;gap:10px;">
+        <a href="#" style="color:var(--text3);font-size:0.85rem;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">LinkedIn</a>
+        <a href="#" style="color:var(--text3);font-size:0.85rem;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">Facebook</a>
+        <a href="#" style="color:var(--text3);font-size:0.85rem;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">Instagram</a>
+        <a href="#" style="color:var(--text3);font-size:0.85rem;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Services" data-zh="服务">Services</h4>
+      <a href="#" onclick="showPage('services')" data-en="AI Development" data-zh="AI开发">AI Development</a>
+      <a href="#" onclick="showPage('services')" data-en="AI Automation" data-zh="AI自动化">AI Automation</a>
+      <a href="#" onclick="showPage('services')" data-en="AI Consultancy" data-zh="AI咨询">AI Consultancy</a>
+      <a href="#" onclick="showPage('services')" data-en="AI Training" data-zh="AI培训">AI Training</a>
+      <a href="#" onclick="showPage('services')" data-en="AI Tools Setup" data-zh="AI工具设置">AI Tools Setup</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Company" data-zh="公司">Company</h4>
+      <a href="#" onclick="showPage('b2b')" data-en="B2B Solutions" data-zh="B2B解决方案">B2B Solutions</a>
+      <a href="#" onclick="showPage('b2c')" data-en="B2C Solutions" data-zh="B2C解决方案">B2C Solutions</a>
+      <a href="#" onclick="showPage('resources')" data-en="Resources" data-zh="资源">Resources</a>
+      <a href="#" onclick="showPage('member')" data-en="Membership" data-zh="会员">Membership</a>
+      <a href="#" onclick="showPage('contact')" data-en="Contact" data-zh="联系">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Legal" data-zh="法律">Legal</h4>
+      <a href="#" data-en="Privacy Policy" data-zh="隐私政策">Privacy Policy</a>
+      <a href="#" data-en="Terms of Service" data-zh="服务条款">Terms of Service</a>
+      <a href="#" data-en="PDPA Compliance" data-zh="PDPA合规">PDPA Compliance</a>
+      <a href="#" data-en="Refund Policy" data-zh="退款政策">Refund Policy</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 AI Studio Tech Sdn Bhd. <span data-en="All rights reserved." data-zh="版权所有。">All rights reserved.</span> 🇲🇾 <span data-en="Made in Malaysia." data-zh="马来西亚制造。">Made in Malaysia.</span></div>
+    <div style="display:flex;gap:1rem;">
+      <span class="mono" style="font-size:0.78rem;color:var(--text3);">SSM Reg: 12345678-T</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+    <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:0.4rem;" data-en="Create Your Free Account" data-zh="创建您的免费账户">Create Your Free Account</h3>
+    <p style="font-size:0.88rem;color:var(--text2);margin-bottom:1.5rem;" data-en="Join 1,240+ AI Studio Tech members across Malaysia." data-zh="加入马来西亚1,240+名AI Studio Tech会员。">Join 1,240+ AI Studio Tech members across Malaysia.</p>
+    <form onsubmit="registerMember(event)">
+      <div class="form-group">
+        <label class="form-label" data-en="Full Name *" data-zh="全名 *">Full Name *</label>
+        <input type="text" class="form-input" id="regName" required placeholder="Ahmad bin Abdullah">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Email Address *" data-zh="电子邮件地址 *">Email Address *</label>
+        <input type="email" class="form-input" id="regEmail" required placeholder="ahmad@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Phone Number" data-zh="电话号码">Phone Number</label>
+        <input type="tel" class="form-input" id="regPhone" placeholder="+60 12 345 6789">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="I am a..." data-zh="我是...">I am a...</label>
+        <select class="form-input form-select" id="regType">
+          <option data-en="Business Owner" data-zh="企业主">Business Owner</option>
+          <option data-en="Working Professional" data-zh="工作专业人士">Working Professional</option>
+          <option data-en="Student" data-zh="学生">Student</option>
+          <option data-en="Freelancer" data-zh="自由职业者">Freelancer</option>
+          <option data-en="Other" data-zh="其他">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="State" data-zh="州">State</label>
+        <select class="form-input form-select" id="regState">
+          <option>Kuala Lumpur</option><option>Selangor</option><option>Penang</option>
+          <option>Johor</option><option>Sabah</option><option>Sarawak</option>
+          <option>Perak</option><option>Kedah</option><option>Negeri Sembilan</option>
+          <option>Melaka</option><option>Pahang</option><option>Terengganu</option>
+          <option>Kelantan</option><option>Perlis</option><option>Putrajaya</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-lg primary" style="width:100%;justify-content:center;" data-en="Create Free Account →" data-zh="创建免费账户 →">Create Free Account →</button>
+      <p style="font-size:0.78rem;color:var(--text3);margin-top:0.75rem;text-align:center;" data-en="No credit card required. We respect your privacy (PDPA compliant)." data-zh="无需信用卡。我们尊重您的隐私（符合PDPA）。">No credit card required. We respect your privacy (PDPA compliant).</p>
+    </form>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;" data-en="Sign In to Your Account" data-zh="登录您的账户">Sign In to Your Account</h3>
+    <form onsubmit="loginMember(event)">
+      <div class="form-group">
+        <label class="form-label" data-en="Email Address" data-zh="电子邮件地址">Email Address</label>
+        <input type="email" class="form-input" id="loginEmail" required placeholder="ahmad@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Password" data-zh="密码">Password</label>
+        <input type="password" class="form-input" id="loginPass" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn-lg primary" style="width:100%;justify-content:center;" data-en="Sign In →" data-zh="登录 →">Sign In →</button>
+      <p style="font-size:0.82rem;text-align:center;margin-top:1rem;color:var(--text2);" data-en="Don't have an account?" data-zh="没有账户？">Don't have an account?</p>
+      <button type="button" class="btn-lg" style="width:100%;justify-content:center;margin-top:6px;" onclick="closeModal('loginModal');openModal('registerModal')" data-en="Create Free Account" data-zh="创建免费账户">Create Free Account</button>
+    </form>
+  </div>
+</div>
+
+<!-- CART / PAYMENT MODAL -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal" style="max-width:640px;">
+    <button class="modal-close" onclick="closeModal('cartModal')">✕</button>
+    <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:1.5rem;" data-en="Your Package" data-zh="您的套餐">Your Package</h3>
+
+    <div class="steps" id="cartSteps">
+      <div class="step-dot active" id="step1dot">1</div>
+      <div class="step-line" id="stepline1"></div>
+      <div class="step-dot" id="step2dot">2</div>
+      <div class="step-line" id="stepline2"></div>
+      <div class="step-dot" id="step3dot">3</div>
+    </div>
+
+    <!-- STEP 1: Cart -->
+    <div id="cartStep1">
+      <div id="cartItems">
+        <div style="text-align:center;padding:2rem;color:var(--text3);" id="emptyCart" data-en="Your package is empty. Browse services and add items." data-zh="您的套餐是空的。浏览服务并添加项目。">Your package is empty. Browse services and add items.</div>
+      </div>
+      <div class="cart-total" id="cartTotalRow" style="display:none;">
+        <span data-en="Total" data-zh="总计">Total</span>
+        <span id="cartTotal">RM 0</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:1rem;">
+        <button class="btn-lg" style="flex:1;justify-content:center;" onclick="showPage('services');closeModal('cartModal')" data-en="+ Add Services" data-zh="+ 添加服务">+ Add Services</button>
+        <button class="btn-lg primary" style="flex:1;justify-content:center;" onclick="goToStep(2)" id="proceedBtn" disabled data-en="Proceed to Details →" data-zh="继续到详情 →">Proceed to Details →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Details -->
+    <div id="cartStep2" style="display:none;">
+      <div class="form-group">
+        <label class="form-label" data-en="Full Name *" data-zh="全名 *">Full Name *</label>
+        <input type="text" class="form-input" id="payName" required placeholder="Ahmad bin Abdullah">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Email *" data-zh="电子邮件 *">Email *</label>
+        <input type="email" class="form-input" id="payEmail" required placeholder="ahmad@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Phone *" data-zh="电话 *">Phone *</label>
+        <input type="tel" class="form-input" id="payPhone" required placeholder="+60 12 345 6789">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-en="Company / Business Name (optional)" data-zh="公司/企业名称（可选）">Company / Business Name (optional)</label>
+        <input type="text" class="form-input" id="payCompany" placeholder="ABC Sdn Bhd">
+      </div>
+      <div style="display:flex;gap:10px;margin-top:1rem;">
+        <button class="btn-lg" style="flex:1;justify-content:center;" onclick="goToStep(1)" data-en="← Back" data-zh="← 返回">← Back</button>
+        <button class="btn-lg primary" style="flex:1;justify-content:center;" onclick="goToStep(3)" data-en="Choose Payment →" data-zh="选择付款 →">Choose Payment →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Payment -->
+    <div id="cartStep3" style="display:none;">
+      <p style="font-size:0.88rem;color:var(--text2);margin-bottom:1rem;" data-en="Select your preferred payment method. You will be redirected to your bank's secure portal." data-zh="选择您首选的付款方式。您将被重定向到您的银行安全门户。">Select your preferred payment method. You will be redirected to your bank's secure portal.</p>
+
+      <div class="payment-method" onclick="selectBank('maybank')" id="bank-maybank">
+        <div class="bank-logo" style="background:#f4a31c;">MB</div>
+        <div>
+          <div style="font-weight:600;font-size:0.92rem;">Maybank2u</div>
+          <div style="font-size:0.78rem;color:var(--text3);">Online Transfer / FPX</div>
+        </div>
+      </div>
+      <div class="payment-method" onclick="selectBank('pb')" id="bank-pb">
+        <div class="bank-logo" style="background:#003087;">PB</div>
+        <div>
+          <div style="font-weight:600;font-size:0.92rem;">Public Bank PBe</div>
+          <div style="font-size:0.78rem;color:var(--text3);">Online Transfer / FPX</div>
+        </div>
+      </div>
+      <div class="payment-method" onclick="selectBank('hlb')" id="bank-hlb">
+        <div class="bank-logo" style="background:#c41230;">HLB</div>
+        <div>
+          <div style="font-weight:600;font-size:0.92rem;">Hong Leong Connect</div>
+          <div style="font-size:0.78rem;color:var(--text3);">Online Transfer / FPX</div>
+        </div>
+      </div>
+      <div class="payment-method" onclick="selectBank('fpx')" id="bank-fpx">
+        <div class="bank-logo" style="background:#0077c8;">FPX</div>
+        <div>
+          <div style="font-weight:600;font-size:0.92rem;">FPX (All Malaysian Banks)</div>
+          <div style="font-size:0.78rem;color:var(--text3);">Instant Bank Transfer</div>
+        </div>
+      </div>
+
+      <div style="margin:1.2rem 0;padding:1rem;background:var(--bg3);border-radius:10px;font-size:0.88rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span data-en="Subtotal" data-zh="小计">Subtotal</span><span id="paySubtotal">RM 0</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;color:var(--text3);"><span>SST 8%</span><span id="paySst">RM 0</span></div>
+        <div style="display:flex;justify-content:space-between;font-weight:700;border-top:1px solid var(--border);padding-top:8px;margin-top:8px;"><span data-en="Total Payable" data-zh="应付总额">Total Payable</span><span id="payTotal" style="color:var(--accent);">RM 0</span></div>
+      </div>
+
+      <div style="display:flex;gap:10px;">
+        <button class="btn-lg" style="flex:1;justify-content:center;" onclick="goToStep(2)" data-en="← Back" data-zh="← 返回">← Back</button>
+        <button class="btn-lg primary" style="flex:1;justify-content:center;" onclick="processPayment()" id="payBtn" data-en="Pay Now →" data-zh="立即付款 →">Pay Now →</button>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text3);text-align:center;margin-top:0.75rem;">🔒 <span data-en="Secured by FPX & Malaysian Banking Consortium. Your data is encrypted." data-zh="由FPX和马来西亚银行联盟保护。您的数据已加密。">Secured by FPX & Malaysian Banking Consortium. Your data is encrypted.</span></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ====== STATE ======
+let cart = [];
+let currentLang = 'en';
+let selectedBank = null;
+
+// ====== THEME ======
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('themeBtn').textContent = isDark ? '🌙 Dark' : '☀️ Light';
+}
+
+// ====== LANGUAGE ======
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('langEn').classList.toggle('active', lang === 'en');
+  document.getElementById('langZh').classList.toggle('active', lang === 'zh');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const txt = el.getAttribute('data-' + lang);
+    if (txt) el.textContent = txt;
+  });
+}
+
+// ====== PAGES ======
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + name);
+  if (page) { page.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  observeFadeIns();
+}
+
+// ====== MODAL ======
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  if (id === 'cartModal') renderCart();
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if(e.target===m) m.classList.remove('open'); });
+});
+
+// ====== CART ======
+function addToCart(name, price) {
+  const existing = cart.find(i => i.name === name);
+  if (!existing) {
+    cart.push({name, price});
+    showNotif('✅', 'Added to package!', name + ' added.');
+  } else {
+    showNotif('ℹ️', 'Already added', name + ' is in your package.');
+  }
+  renderCart();
+}
+
+function removeFromCart(name) {
+  cart = cart.filter(i => i.name !== name);
+  renderCart();
+}
+
+function renderCart() {
+  const container = document.getElementById('cartItems');
+  const empty = document.getElementById('emptyCart');
+  const totalRow = document.getElementById('cartTotalRow');
+  const proceedBtn = document.getElementById('proceedBtn');
+  if (!container) return;
+  if (cart.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text3);" data-en="Your package is empty. Browse services and add items." data-zh="您的套餐是空的。">Your package is empty. Browse services and add items.</div>';
+    totalRow.style.display = 'none';
+    proceedBtn.disabled = true;
+    return;
+  }
+  container.innerHTML = cart.map(i => `
+    <div class="cart-item">
+      <div><div style="font-weight:600;font-size:0.92rem;">${i.name}</div><div style="font-size:0.8rem;color:var(--text3);">${i.price}</div></div>
+      <button onclick="removeFromCart('${i.name}')" style="background:none;border:none;cursor:pointer;color:var(--text3);font-size:1.1rem;padding:4px;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--text3)'">✕</button>
+    </div>
+  `).join('');
+  totalRow.style.display = 'flex';
+  proceedBtn.disabled = false;
+  document.getElementById('cartTotal').textContent = 'Custom Quote';
+}
+
+// ====== PAYMENT STEPS ======
+function goToStep(n) {
+  ['cartStep1','cartStep2','cartStep3'].forEach((id,i) => {
+    document.getElementById(id).style.display = i+1===n ? 'block' : 'none';
+  });
+  ['step1dot','step2dot','step3dot'].forEach((id,i) => {
+    const el = document.getElementById(id);
+    el.className = 'step-dot' + (i+1 < n ? ' done' : (i+1===n ? ' active' : ''));
+  });
+  ['stepline1','stepline2'].forEach((id,i) => {
+    document.getElementById(id).className = 'step-line' + (i+1 < n-1 ? ' done' : (i < n-1 ? ' done' : ''));
+  });
+  if (n === 3) updatePaymentTotal();
+}
+
+function selectBank(bank) {
+  selectedBank = bank;
+  document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+  document.getElementById('bank-' + bank).classList.add('selected');
+}
+
+function updatePaymentTotal() {
+  const sub = cart.length * 5000;
+  const sst = Math.round(sub * 0.08);
+  const total = sub + sst;
+  document.getElementById('paySubtotal').textContent = 'RM ' + sub.toLocaleString();
+  document.getElementById('paySst').textContent = 'RM ' + sst.toLocaleString();
+  document.getElementById('payTotal').textContent = 'RM ' + total.toLocaleString();
+}
+
+function processPayment() {
+  if (!selectedBank) { showNotif('⚠️','Select payment','Please select a payment method.'); return; }
+  const name = document.getElementById('payName').value;
+  const email = document.getElementById('payEmail').value;
+  if (!name || !email) { showNotif('⚠️','Fill in details','Please complete Step 2 first.'); return; }
+  closeModal('cartModal');
+  showNotif('🔒','Redirecting...','Connecting to ' + selectedBank.toUpperCase() + ' secure portal.');
+  setTimeout(() => {
+    showNotif('✅','Payment Demo','In production, you\'d be redirected to your bank. Cart cleared.');
+    cart = [];
+  }, 2500);
+}
+
+// ====== MEMBER AUTH ======
+function registerMember(e) {
+  e.preventDefault();
+  const name = document.getElementById('regName').value;
+  const email = document.getElementById('regEmail').value;
+  if (!name || !email) return;
+  const member = {name, email, registered: new Date().toISOString()};
+  const members = JSON.parse(localStorage.getItem('ast_members') || '[]');
+  if (!members.find(m => m.email === email)) members.push(member);
+  localStorage.setItem('ast_members', JSON.stringify(members));
+  localStorage.setItem('ast_current', JSON.stringify(member));
+  updateMemberUI(member);
+  closeModal('registerModal');
+  showNotif('🎉','Welcome!','Your AI Studio Tech account is ready, ' + name.split(' ')[0] + '!');
+}
+
+function loginMember(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const members = JSON.parse(localStorage.getItem('ast_members') || '[]');
+  const member = members.find(m => m.email === email);
+  if (member) {
+    localStorage.setItem('ast_current', JSON.stringify(member));
+    updateMemberUI(member);
+    closeModal('loginModal');
+    showNotif('👋','Welcome back!','Signed in as ' + member.name);
+  } else {
+    showNotif('❌','Not found','No account with that email. Please register.');
+  }
+}
+
+function logoutMember() {
+  localStorage.removeItem('ast_current');
+  document.getElementById('member-logged-in').style.display = 'none';
+  document.getElementById('member-logged-out').style.display = 'block';
+}
+
+function updateMemberUI(m) {
+  const initials = m.name.split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
+  document.getElementById('memberAvatar').textContent = initials;
+  document.getElementById('memberName').textContent = m.name;
+  document.getElementById('memberEmail').textContent = m.email;
+  document.getElementById('member-logged-in').style.display = 'block';
+  document.getElementById('member-logged-out').style.display = 'none';
+}
+
+// Check existing session
+const existingMember = localStorage.getItem('ast_current');
+if (existingMember) { try { updateMemberUI(JSON.parse(existingMember)); } catch(e){} }
+
+// ====== CONTACT FORM ======
+function submitContact(e) {
+  e.preventDefault();
+  const name = document.getElementById('cName').value;
+  const email = document.getElementById('cEmail').value;
+  const service = document.getElementById('cService').value;
+  const enquiries = JSON.parse(localStorage.getItem('ast_enquiries') || '[]');
+  enquiries.push({name, email, service, time: new Date().toISOString()});
+  localStorage.setItem('ast_enquiries', JSON.stringify(enquiries));
+  document.getElementById('contactSuccess').style.display = 'block';
+  document.getElementById('contactForm').reset();
+  showNotif('📧','Auto-reply sent!','Confirmation email sent to ' + email);
+  setTimeout(() => document.getElementById('contactSuccess').style.display = 'none', 6000);
+}
+
+// ====== RESOURCES FILTER ======
+function filterResources(cat) {
+  document.querySelectorAll('#resources-grid .resource-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// ====== NOTIFICATIONS ======
+function showNotif(icon, title, msg) {
+  const n = document.getElementById('notif');
+  document.getElementById('notif-icon').textContent = icon;
+  document.getElementById('notif-title').textContent = title;
+  document.getElementById('notif-msg').textContent = msg;
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 4000);
+}
+
+// ====== FADE-IN ======
+function observeFadeIns() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
+}
+observeFadeIns();
+</script>
+</body>
+</html>
